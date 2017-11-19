@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.asif.thymeleaf</groupId>
+  <artifactId>ThymeleafImpl</artifactId>
+  <version>0.0.1</version>
+  <packaging>war</packaging>
+  <name>Integration of Thyemeleaf </name>
+  <description>Thymleaf integration with spring framework</description>
+  
+  	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>1.8</jdk.version> 
+        <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
+        <spring.version>4.2.2.RELEASE</spring.version>
+        <maven.compiler.version>3.1</maven.compiler.version>
+        <maven.war.version>2.6</maven.war.version>
+    </properties>
+ 
+   <!-- To avoid compiler and jre version -->
+   <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.version}</version>
+          <configuration>
+              <source>${jdk.version}</source>
+              <target>${jdk.version}</target>
+          </configuration>
+      </plugin>
+      <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-war-plugin</artifactId>
+             <version>${maven.war.version}</version>
+             <configuration>
+                 <failOnMissingWebXml>false</failOnMissingWebXml>
+             </configuration>
+         </plugin>
+        </plugins>
+    </build>
+
+	<dependencies>
+        <!-- Provided dependencies -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Compile dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+    </dependencies>
+    
+</project>
